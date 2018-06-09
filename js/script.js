@@ -24,6 +24,10 @@ lista[21] = "tubo_de_ensaio";
 lista[22] = "vidro_de_relogio";
 
 function populaCampos(){
+    if(document.getElementById("vidrarias").childElementCount !== 6){
+        location.reload();
+    }
+
     // Popula Primeiro Valor
     var aux = Math.floor(Math.random() * 7);
     document.getElementById("imgVidraria1").src = "img/"+lista[aux]+".jpg";
@@ -80,7 +84,8 @@ function capitalizaNomesVidrarias(nomesVidrarias) {
 }
 
 populaCampos();
-//setInterval(populaCampos, 3000);
+// Troca imagens a cada 1 minuto | 60000 milissegundos
+setInterval(populaCampos, 60000);
 
 function allowDrop(ev) {
     ev.preventDefault();
@@ -115,19 +120,23 @@ function dropInicial(ev) {
 }
 
 function validaCampos() {
-    if(document.getElementById("vidrarias").childElementCount == 0){
+    if(document.getElementById("vidrarias").childElementCount === 0){
         if(document.getElementById("vidraria1").querySelector("#imgVidraria1") != null){
             if(document.getElementById("vidraria2").querySelector("#imgVidraria2") != null){
                 if(document.getElementById("vidraria3").querySelector("#imgVidraria3") != null){
                     if(document.getElementById("vidraria4").querySelector("#imgVidraria4") != null){
                         if(document.getElementById("vidraria5").querySelector("#imgVidraria5") != null){
                             if(document.getElementById("vidraria6").querySelector("#imgVidraria6") != null){
-                                alert("Jogo ganho!");
+                                var cookieJogo03 = "jogo03=finalizado; expires=600000; path=/";
+                                document.cookie = cookieJogo03;
+                                alert("Parabéns, você acertou. Cookie |jogo03| de término gravado com sucesso!");
+                                return;
                             }
                         }
                     }
                 }
             }
         }
+        alert("A resposta está incorreta!");
     }
 }
