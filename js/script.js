@@ -115,20 +115,19 @@ function dropInicial(ev) {
 }
 
 function validaCampos() {
-    /*
-    if(total === 3){
-        alert("Entrou aqui 1");
-        if ($("#vidraria1 > img[src*='img/balao_volumetrico.jpg']").length){
-            if ($("#vidraria2 > img[src*='img/bastao_de_vidro.jpg']").length){
-                if ($("#vidraria3 > img[src*='img/bequer.jpg']").length){
-                    if ($("#vidraria4 > img[src*='img/extrator_soxhlet.jpg']").length){
-                        alert("Acerto mizeravi");
+    if(document.getElementById("vidrarias").childElementCount == 0){
+        if(document.getElementById("vidraria1").querySelector("#imgVidraria1") != null){
+            if(document.getElementById("vidraria2").querySelector("#imgVidraria2") != null){
+                if(document.getElementById("vidraria3").querySelector("#imgVidraria3") != null){
+                    if(document.getElementById("vidraria4").querySelector("#imgVidraria4") != null){
+                        if(document.getElementById("vidraria5").querySelector("#imgVidraria5") != null){
+                            if(document.getElementById("vidraria6").querySelector("#imgVidraria6") != null){
+                                alert("Jogo ganho!");
+                            }
+                        }
                     }
                 }
             }
         }
-        */
-    if(document.getElementById("vidrarias").childElementCount == 0){
-        alert("Fodase");
     }
 }
